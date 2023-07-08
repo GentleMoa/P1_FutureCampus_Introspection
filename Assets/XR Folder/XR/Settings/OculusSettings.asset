@@ -28,5 +28,5 @@ MonoBehaviour:
   EnableTrackingOriginStageMode: 0
   SpaceWarp: 0
   TargetQuest2: 1
-  TargetQuestPro: 1
-  SystemSplashScreen: {fileID: 2800000, guid: 27a2888546befb74faa8c9c28b190f95, type: 3}
+  TargetQuestPro: 0
+  SystemSplashScreen: {fileID: 0}
