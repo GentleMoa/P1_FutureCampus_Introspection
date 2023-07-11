@@ -6,9 +6,10 @@ public class GlobalProgression : MonoBehaviour
 {
     //Public Variables
     public int globalProgressionState;
+    public int studentSpecterState;
     public List<GameObject> environments = new List<GameObject>();
     public List<Material> skyboxes = new List<Material>();
-
+    public List<GameObject> studentSpecters = new List<GameObject>();
 
     #region Singleton
     //Singleton
@@ -46,6 +47,12 @@ public class GlobalProgression : MonoBehaviour
 
             UpdateEnvironmentAndSkybox();
         }
+
+        if (studentSpecterState < studentSpecters.Count)
+        {
+            studentSpecterState += 1;
+            AddStudentSpecters();
+        }
     }
 
     private void UpdateEnvironmentAndSkybox()
@@ -62,5 +69,10 @@ public class GlobalProgression : MonoBehaviour
 
         //Update Skybox
         RenderSettings.skybox = skyboxes[globalProgressionState];
+    }
+
+    private void AddStudentSpecters()
+    {
+        studentSpecters[studentSpecterState - 1].SetActive(true);
     }
 }
