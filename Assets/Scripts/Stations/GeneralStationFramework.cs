@@ -101,10 +101,13 @@ public class GeneralStationFramework : MonoBehaviour
         //Check if this Station has already contributed to global progression
         if (contributedToGlobalProgression == false)
         {
-            //Call ProgressToNextGlobalState() from GlobalProgression Singleton Instance
-            GlobalProgression.Instance.ProgressToNextGlobalState();
+            //Invoke the progression delayed so the fade to black can happen first
+            Invoke("DelayedProgression", 2.0f);
 
             Debug.Log(gameObject.name + " just contributed to global progression!");
+
+            //Fade to black
+            FadeTransitions.Instance.Fade(true);
         }
         else if (contributedToGlobalProgression == true)
         {
@@ -112,5 +115,14 @@ public class GeneralStationFramework : MonoBehaviour
         }
 
         buttonCompletion.SetActive(false);
+    }
+
+    private void DelayedProgression()
+    {
+        //Call ProgressToNextGlobalState() from GlobalProgression Singleton Instance
+        GlobalProgression.Instance.ProgressToNextGlobalState();
+
+        //Fade from black
+        FadeTransitions.Instance.Fade(false);
     }
 }
