@@ -29,10 +29,6 @@ public class GlobalProgression : MonoBehaviour
     }
     #endregion
 
-    void Start()
-    {
-        
-    }
 
     // ! ! !
     //This function has to be called each time a station is completed (Don't forget to make sure each station can only contribute to global progression once!)
