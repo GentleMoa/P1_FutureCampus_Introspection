@@ -52,7 +52,7 @@ public class GeneralStationFramework : MonoBehaviour
                 state += 1;
 
                 //Invoke function to enable completion button after 5 secs
-                Invoke("ShowCompletionButton", 5.0f);
+                Invoke("ShowCompletionButton", 60.0f);
 
                 break;
         }

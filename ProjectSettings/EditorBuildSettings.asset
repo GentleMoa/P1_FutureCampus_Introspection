@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Scene_PreRoom.unity
+    guid: 5a3142515e70c80449904c6500c42d45
+  - enabled: 1
     path: Assets/Scenes/Scene_MindfulnessToolbox.unity
     guid: f3cd614308ee8f746a857303a96a4dd2
   m_configObjects:
