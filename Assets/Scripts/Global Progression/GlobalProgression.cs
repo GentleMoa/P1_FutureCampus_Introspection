@@ -56,7 +56,7 @@ public class GlobalProgression : MonoBehaviour
         //Wait for Tutorial - Button Interaction to finish to play: Disclaimer
         Invoke("TriggerBoxyVoiceoverSections", 109.0f);
         //Disable all tutorialSprites
-        tutorialSprites[tutorialSprites.Count - 1].SetActive(false);
+        Invoke("UpdateTutorialSprites", 109.0f);
     }
 
     // ! ! !
@@ -131,16 +131,27 @@ public class GlobalProgression : MonoBehaviour
 
     private void UpdateTutorialSprites()
     {
-        //Disable all tutorialSprites
-        for (int i = 0; i < tutorialSprites.Count; i++)
+        if (tutorialSpriteState < 3)
         {
-            tutorialSprites[i].SetActive(false);
+            //Disable all tutorialSprites
+            for (int i = 0; i < tutorialSprites.Count; i++)
+            {
+                tutorialSprites[i].SetActive(false);
+            }
+
+            //Enable only the correct one
+            tutorialSprites[tutorialSpriteState].SetActive(true);
+
+            //Increment tutorialSpriteState by +1
+            tutorialSpriteState += 1;
         }
-
-        //Enable only the correct one
-        tutorialSprites[tutorialSpriteState].SetActive(true);
-
-        //Increment tutorialSpriteState by +1
-        tutorialSpriteState += 1;
+        else
+        {
+            //Disable all tutorialSprites
+            for (int i = 0; i < tutorialSprites.Count; i++)
+            {
+                tutorialSprites[i].SetActive(false);
+            }
+        }
     }
 }

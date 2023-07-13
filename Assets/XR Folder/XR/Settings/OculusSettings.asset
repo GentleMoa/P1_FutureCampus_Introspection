@@ -29,4 +29,4 @@ MonoBehaviour:
   SpaceWarp: 0
   TargetQuest2: 1
   TargetQuestPro: 0
-  SystemSplashScreen: {fileID: 0}
+  SystemSplashScreen: {fileID: 2800000, guid: 3f0c6cf2821c439438c7c78ce786a468, type: 3}
