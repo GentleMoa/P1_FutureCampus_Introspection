@@ -10,9 +10,11 @@ public class GlobalProgression : MonoBehaviour
     public List<GameObject> environments = new List<GameObject>();
     public List<Material> skyboxes = new List<Material>();
     public List<GameObject> studentSpecters = new List<GameObject>();
+    public List<AudioClip> ambientAudio = new List<AudioClip>();
 
     //Serialized Variables
     [SerializeField] private GameObject globalBoxy;
+    [SerializeField] private AudioSource ambientAudioSource;
 
     #region Singleton
     //Singleton
@@ -45,6 +47,7 @@ public class GlobalProgression : MonoBehaviour
             globalProgressionState += 1;
 
             UpdateEnvironmentAndSkybox();
+            UpdateAmbientAudio();
         }
 
         //Progressively enabling more and more internation fake student specters from other EuT+ countries
@@ -80,5 +83,11 @@ public class GlobalProgression : MonoBehaviour
     private void AddStudentSpecters()
     {
         studentSpecters[studentSpecterState - 1].SetActive(true);
+    }
+
+    private void UpdateAmbientAudio()
+    {
+        ambientAudioSource.clip = ambientAudio[globalProgressionState];
+        ambientAudioSource.Play();
     }
 }
