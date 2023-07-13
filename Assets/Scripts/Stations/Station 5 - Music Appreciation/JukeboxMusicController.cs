@@ -7,9 +7,10 @@ public class JukeboxMusicController : MonoBehaviour
     //Public Variables
     public int playhead;
     public List<AudioClip> trackList = new List<AudioClip>();
+    public List<GameObject> trackScreens = new List<GameObject>();
 
     //Private Variables
-    private bool _pause = true;
+    private bool _pause = false;
     private AudioSource _audioSource;
 
     void Start()
@@ -67,6 +68,9 @@ public class JukeboxMusicController : MonoBehaviour
         //Play/continue the current track
         _audioSource.clip = trackList[playhead];
         _audioSource.Play();
+
+        //Update the visual screen
+        UpdateTrackScreen();
     }
 
     private void LoopPlayhead()
@@ -80,5 +84,17 @@ public class JukeboxMusicController : MonoBehaviour
         {
             playhead = 0;
         }
+    }
+
+    private void UpdateTrackScreen()
+    {
+        //Disable any screen that is currently visible
+        for (int i = 0; i < trackScreens.Count; i++)
+        {
+            trackScreens[i].SetActive(false);
+        }
+
+        //Enable the screen that represents the currently playing song
+        trackScreens[playhead].SetActive(true);
     }
 }
