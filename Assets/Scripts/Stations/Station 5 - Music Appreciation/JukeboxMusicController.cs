@@ -9,7 +9,7 @@ public class JukeboxMusicController : MonoBehaviour
     public List<AudioClip> trackList = new List<AudioClip>();
 
     //Private Variables
-    private bool _pause = false;
+    private bool _pause = true;
     private AudioSource _audioSource;
 
     void Start()
