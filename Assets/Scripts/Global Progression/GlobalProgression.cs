@@ -11,6 +11,9 @@ public class GlobalProgression : MonoBehaviour
     public List<Material> skyboxes = new List<Material>();
     public List<GameObject> studentSpecters = new List<GameObject>();
 
+    //Serialized Variables
+    [SerializeField] private GameObject globalBoxy;
+
     #region Singleton
     //Singleton
     public static GlobalProgression Instance { set; get; }
@@ -44,10 +47,17 @@ public class GlobalProgression : MonoBehaviour
             UpdateEnvironmentAndSkybox();
         }
 
+        //Progressively enabling more and more internation fake student specters from other EuT+ countries
         if (studentSpecterState < studentSpecters.Count)
         {
             studentSpecterState += 1;
             AddStudentSpecters();
+        }
+
+        //Enabling global Boxy in the final global progression state
+        if (studentSpecterState == 3)
+        {
+            globalBoxy.SetActive(true);
         }
     }
 
