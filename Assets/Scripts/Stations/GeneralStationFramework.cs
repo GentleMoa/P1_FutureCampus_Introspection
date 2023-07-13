@@ -11,6 +11,7 @@ public class GeneralStationFramework : MonoBehaviour
     [SerializeField] private GameObject buttonRepeatExplanation;
     [SerializeField] private GameObject buttonAbort;
     [SerializeField] private GameObject buttonCompletion;
+    [SerializeField] private GameObject globalBoxy;
 
     //Public Variables
     public int state = 1;
@@ -29,9 +30,16 @@ public class GeneralStationFramework : MonoBehaviour
             case 1:
                 overview.SetActive(false);
                 explanation.SetActive(true);
-                buttonRepeatExplanation.SetActive(true);
                 buttonAbort.SetActive(true);
+                buttonRepeatExplanation.SetActive(true);
                 //If the explanation requires some sort of animation or other cue, trigger it here. Also Audio!!
+
+                //Disable Global Boxy
+                if (GlobalProgression.Instance.studentSpecterState != 3)
+                {
+                    globalBoxy.SetActive(false);
+                }
+
                 state += 1;
                 break;
             case 2:
