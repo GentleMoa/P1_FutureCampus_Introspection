@@ -36,21 +36,13 @@ public class GeneralStationFramework : MonoBehaviour
                 break;
             case 2:
                 explanation.SetActive(false);
+                buttonRepeatExplanation.SetActive(false);
                 exercise.SetActive(true);
                 state += 1;
 
                 //Invoke function to enable completion button after 5 secs
                 Invoke("ShowCompletionButton", 5.0f);
 
-                ////If this station has not contributed to global progression yet, enable completion button after a short delay
-                //if (contributedToGlobalProgression == false)
-                //{
-                //    //Invoke function to enable completion button after 5 secs
-                //    Invoke("ShowCompletionButton", 5.0f);
-                //
-                //    //Set contributedToGlobalProgression flag
-                //    contributedToGlobalProgression = true;
-                //}
                 break;
         }
 
